@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Chocolate Builder</title>
+    <link rel="stylesheet" type="text/css" href="artisan.css">
+    <script src="artisan.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-grid">
+            <a href="index.html"><img src="images/Logos/logo-trans.svg" alt="Artisan Bark Logo" class="logo"></a>
+            <h1>Artisan Bark Co.</h1>
+            <div class="header-icons">
+                <img src="images/icons/cart.svg" alt="Cart" class="cart-icon">
+                <img src="images/icons/user-circle.svg" alt="Profile" class="profile-icon">
+            </div>
+        </div>
+        <nav class="topnav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="custom.html" class="active">Custom Chocolates</a>
+            <a href="premade.html">Pre-Made Chocolates</a>
+            <a href="faq.html">FAQ</a>
+            <a href="articles.html">Articles</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="builder-container">
+        <div class="builder-choices">
+            <h2>Step 1: Choose Your Chocolate Type</h2>
+            <select id="chocolate-type">
+                <option value="milk">Milk Chocolate</option>
+                <option value="dark">Dark Chocolate</option>
+                <option value="white">White Chocolate</option>
+            </select>
+
+            <h2>Step 2: Choose Filled or Chocolate Bar</h2>
+            <input type="radio" id="filled" name="chocolate-style" value="filled">
+            <label for="filled">Filled</label>
+            <input type="radio" id="bar" name="chocolate-style" value="bar" checked>
+            <label for="bar">Chocolate Bar</label>
+
+            <h2>Step 3: Choose Your Toppings</h2>
+            <h3>*A maximum of four(4) toppings*</h3>
+            <div class="toppings">
+                <label><input type="checkbox" value="almonds">Almonds</label>
+                <label><input type="checkbox" value="hazelnut">Hazelnuts</label>
+                <label><input type="checkbox" value="peanuts">Peanuts</label>
+                <label><input type="checkbox" value="walnuts">Walnuts</label>
+                <label><input type="checkbox" value="mint">Mint Cream</label>
+                <label><input type="checkbox" value="sea-salt">Sea Salt</label>
+                <label><input type="checkbox" value="raspberry">Raspberry Cream</label>
+                <label><input type="checkbox" value="caramel">Caramel</label>
+                <label><input type="checkbox" value="coconut">Coconut</label>
+                <label><input type="checkbox" value="coconut-cream">Coconut Cream</label>
+                <label><input type="checkbox" value="orange-zest">Orange Zest</label>
+                <label><input type="checkbox" value="cranberry">Cranberries</label>
+                <label><input type="checkbox" value="peanut-butter">Peanut Butter</label>
+                <label><input type="checkbox" value="espresso-truffle">Espresso Truffle</label>
+                <label><input type="checkbox" value="vanilla">Vanilla Cream</label>
+                <label><input type="checkbox" value="maple">Maple Cream</label>
+                <label><input type="checkbox" value="ginger">Candied Ginger</label>
+                <label><input type="checkbox" value="blueberries">Freeze-Dried Blueberries</label>
+                <label><input type="checkbox" value="toffee">Toffee Bits</label>
+                <label><input type="checkbox" value="pretzel">Pretzel Pieces</label>
+                <label><input type="checkbox" value="marshmallow-pieces">Marshmallow Pieces</label>
+                <label><input type="checkbox" value="marshmallow-cream">Marshmallow Cream</label>
+                <label><input type="checkbox" value="cookie">Cookie Bits</label>
+                <label><input type="checkbox" value="quinoa">Popped Quinoa</label>
+                <label><input type="checkbox" value="chia">Chia Seeds</label>
+                <label><input type="checkbox" value="pumpkin-seeds">Pumpkin Seeds</label>
+            </div>
+        </div>
+
+        <div class="builder-preview">
+            <h2>Your Custom Chocolate</h2>
+            <div class="chocolate-preview" id="chocolate-preview">
+                <!--Chocolate Images here FIND/MAKE Figure out how to do-->
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
