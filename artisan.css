@@ -137,7 +137,8 @@ h1 {
         text-align: center;
     }
 
-    .logo, .header-icons {
+    .logo,
+    .header-icons {
         margin: 0 auto;
     }
 
