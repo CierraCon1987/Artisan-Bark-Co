@@ -34,25 +34,35 @@ $(document).ready(function () {
     walnuts: 'images/toppings/walnuts.png',
   };
 
+  const maxToppings = 4;
+
   function updatePreview() {
-    const chocolateType = $('#chocolate-type').val();
-    const toppings = $('input[type="checkbox"]:checked').map(function () {
+    const chocolateType = $('input[name="chocolate-type"]:checked').val();
+    const selectedToppings = $('input[type="checkbox"]:checked').map(function () {
       return $(this).val();
     }).get();
 
-    let previewImage = baseImages[chocolateType];
-    if (toppings.length > 0) {
-      previewImage = baseImages[chocolateType] + '?toppings=' + toppings.join(',');
-    }
+    // Set chocolate base image
+    $('#chocolate-base').attr('src', baseImages[chocolateType]);
 
-    $('#chocolate-preview').css('background-image', 'url(' + previewImage + ')');
+    // Clear previous toppings
+    $('.chocolate-topping').remove();
 
+    // Add new toppings
+    selectedToppings.slice(0, maxToppings).forEach(topping => {
+      $('#chocolate-preview').append(
+        `<img src="${toppingImages[topping]}" alt="${topping}" class="chocolate-img chocolate-topping">`
+      );
+    });
   }
 
-  $('#chocolate-type').change(updatePreview);
-  $('input[name="chocolate-style"]').change(updatePreview);
-  $('input[type="checkbox"]').change(updatePreview);
+  // Start with milk chocolate by default
+  $('input[name="chocolate-type"][value="milk"]').prop('checked', true);
+  updatePreview();
 
+  // Attach change event listeners
+  $('input[name="chocolate-type"]').change(updatePreview);
+  $('input[type="checkbox"]').change(updatePreview);
 });
 
 //FAQ JS

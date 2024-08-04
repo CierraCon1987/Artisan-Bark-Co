@@ -314,64 +314,106 @@ h3 {
 }
 
 /* Custom Chocolate Builder Styles */
-.builder-container h2 {
-    font-size: 30px;
-}
-
-.builder-container p {
-    width: 80%;
-    margin-bottom: 40px;
-}
-
 .custom-builder-container {
     display: flex;
     width: 100%;
-    height: auto;
-    margin-top: 120px;
     padding: 20px;
     justify-content: space-between;
     box-sizing: border-box;
-}
+    }
 
 .builder-choices {
     flex: 1;
     padding: 20px;
     max-width: 30%;
+    border: solid 2px #F4BE69;
+    margin-right: 20px;
+}
+
+.custom-intro h2 {
+    font-size: 30px;
+}
+
+.custom-intro p {
+    margin-bottom: 40px;
+}
+
+.builder-choices h3 {
+    font-size: 20px;
+}
+
+.builder-choices h4 {
+    font-size: 12px;
+}
+
+.builder-choices label {
+    font-size: 16px;
 }
 
 .builder-preview {
     flex: 1;
-    padding: 20px;
-    max-width: 70%;
-    text-align: center;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    padding: 20px;
+    max-width: 60%;
+    text-align: center;
+    margin-left: 20px;
+    position: relative;
+}
+
+.builder-preview h3 {
+    font-size: 30px;
 }
 
 .chocolate-preview {
     width: 100%;
     height: auto;
-    border: 2px solid #000;
     margin-top: 20px;
     position: relative;
     background-size: cover;
     background-position: center;
 }
 
-.chocolate-img {
-    width: 100%;
-    height: auto;
+.custom-chocolate-img {
+    width: auto;
+    max-height: 500px;
+}
+
+.chocolate-topping {
+    max-width: 25%;
+    max-height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    border-bottom: 0px solid #ffffff;
 }
 
 .toppings {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    font-size: 16px;
 }
 
 .toppings label {
     margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .custom-builder-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .builder-choices,
+    .builder-preview {
+        max-width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+    }
 }
 
 /* About Us Page styles */

@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Chocolate Builder</title>
     <link rel="stylesheet" type="text/css" href="artisan.css">
-    <script src="artisan.js" defer></script>    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="artisan.js" defer></script>
 </head>
 
 <body>
@@ -30,23 +30,29 @@
             <a href="contact.html">Contact</a>
         </nav>
     </header>
-
-    <main class="builder-container">
+    <div class="custom-intro">
         <h2>Custom Chocolate Bars</h2>
         <p>Unleash your creativity with our custom chocolate bars. Select from our premium ingredients to concoct a
             chocolate masterpiece that reflects your unique taste and provides a decadent, personalized indulgence.
         </p>
+    </div>
+    <main class="custom-builder-container">
+
         <div class="builder-choices">
-            <h3>Step 1: Choose Your Chocolate Type</h3>
-            <select id="chocolate-type">
-                <option value="milk">Milk Chocolate</option>
-                <option value="dark">Dark Chocolate</option>
-                <option value="white">White Chocolate</option>
-            </select>
+            <h3>Step 1: Choose Your Chocolate</h3>
+            <input type="radio" id="milk" name="chocolate-type" value="milk" checked>
+            <label for="milk">Milk Chocolate</label><br>
+
+            <input type="radio" id="dark" name="chocolate-type" value="dark">
+            <label for="dark">Dark Chocolate</label>
+
+            <input type="radio" id="white" name="chocolate-type" value="white">
+            <label for="white">White Chocolate</label>
 
             <h3>Step 2: Choose Filled or Chocolate Bar</h3>
             <input type="radio" id="filled" name="chocolate-style" value="filled">
             <label for="filled">Filled</label>
+
             <input type="radio" id="bar" name="chocolate-style" value="bar" checked>
             <label for="bar">Chocolate Bar</label>
 
@@ -54,42 +60,85 @@
             <h4>*A maximum of four(4) toppings*</h4>
             <div class="toppings">
                 <label><input type="checkbox" value="almonds">Almonds</label>
-                <label><input type="checkbox" value="hazelnut">Hazelnuts</label>
-                <label><input type="checkbox" value="peanuts">Peanuts</label>
-                <label><input type="checkbox" value="walnuts">Walnuts</label>
-                <label><input type="checkbox" value="mint">Mint Cream</label>
-                <label><input type="checkbox" value="sea-salt">Sea Salt</label>
-                <label><input type="checkbox" value="raspberry">Raspberry Cream</label>
-                <label><input type="checkbox" value="caramel">Caramel</label>
-                <label><input type="checkbox" value="coconut">Coconut</label>
-                <label><input type="checkbox" value="coconut-cream">Coconut Cream</label>
-                <label><input type="checkbox" value="orange-zest">Orange Zest</label>
-                <label><input type="checkbox" value="cranberry">Cranberries</label>
-                <label><input type="checkbox" value="peanut-butter">Peanut Butter</label>
-                <label><input type="checkbox" value="espresso-truffle">Espresso Truffle</label>
-                <label><input type="checkbox" value="vanilla">Vanilla Cream</label>
-                <label><input type="checkbox" value="maple">Maple Cream</label>
-                <label><input type="checkbox" value="ginger">Candied Ginger</label>
                 <label><input type="checkbox" value="blueberries">Freeze-Dried Blueberries</label>
-                <label><input type="checkbox" value="toffee">Toffee Bits</label>
-                <label><input type="checkbox" value="pretzel">Pretzel Pieces</label>
-                <label><input type="checkbox" value="marshmallow-pieces">Marshmallow Pieces</label>
-                <label><input type="checkbox" value="marshmallow-cream">Marshmallow Cream</label>
-                <label><input type="checkbox" value="cookie">Cookie Bits</label>
-                <label><input type="checkbox" value="quinoa">Popped Quinoa</label>
+                <label><input type="checkbox" value="caramel">Caramel</label>
                 <label><input type="checkbox" value="chia">Chia Seeds</label>
-                <label><input type="checkbox" value="pumpkin-seeds">Pumpkin Seeds</label>
+                <label><input type="checkbox" value="coconut">Coconut</label>
+                <label><input type="checkbox" value="coconutcream">Coconut Cream</label>
+                <label><input type="checkbox" value="cookiebits">Cookie Bits</label>
+                <label><input type="checkbox" value="cranberries">Cranberries</label>
+                <label><input type="checkbox" value="ginger">Candied Ginger</label>
+                <label><input type="checkbox" value="hazelnuts">Hazelnuts</label>
+                <label><input type="checkbox" value="maplecream">Maple Cream</label>
+                <label><input type="checkbox" value="marshmallows">Marshmallow Pieces</label>
+                <label><input type="checkbox" value="mintcream">Mint Cream</label>
+                <label><input type="checkbox" value="orangezest">Orange Zest</label>
+                <label><input type="checkbox" value="peanutbutter">Peanut Butter</label>
+                <label><input type="checkbox" value="peanuts">Peanuts</label>
+                <label><input type="checkbox" value="pretzel">Pretzel Pieces</label>
+                <label><input type="checkbox" value="pumpkinseeds">Pumpkin Seeds</label>
+                <label><input type="checkbox" value="quinoa">Popped Quinoa</label>
+                <label><input type="checkbox" value="raspberrycream">Raspberry Cream</label>
+                <label><input type="checkbox" value="seasalt">Sea Salt</label>
+                <label><input type="checkbox" value="toffeebits">Toffee Bits</label>
+                <label><input type="checkbox" value="truffle">Espresso Truffle</label>
+                <label><input type="checkbox" value="vanillacream">Vanilla Cream</label>
+                <label><input type="checkbox" value="walnuts">Walnuts</label>
             </div>
         </div>
 
         <div class="builder-preview">
-            <h2>Your Custom Chocolate</h2>
+            <h3>Your Custom Chocolate</h3>
             <div class="chocolate-preview" id="chocolate-preview">
-                <!--Chocolate Images here FIND/MAKE Figure out how to do-->
+                <img src="images/toppings/milk-chocolate.png" alt="Milk Chocolate Bar" class="custom-chocolate-img"
+                    id="chocolate-base">
             </div>
         </div>
     </main>
-
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>About Us</h2>
+                <p>Artisan Bark Co. is dedicated to crafting the finest chocolate bark with the highest quality
+                    ingredients. Our mission is to bring joy and delight to chocolate lovers everywhere.</p>
+            </div>
+            <div class="footer-section">
+                <h2>Follow Us</h2>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/artisanbarkco" target="_blank"><img
+                            src="images/icons/facebook.svg" alt="Facebook"></a>
+                    <a href="https://www.twitter.com/artisanbarkco" target="_blank"><img src="images/icons/twitter.svg"
+                            alt="Twitter"></a>
+                    <a href="https://www.instagram.com/artisanbarkco" target="_blank"><img
+                            src="images/icons/instagram.svg" alt="Instagram"></a>
+                    <a href="https://www.pinterest.com/artisanbarkco" target="_blank"><img
+                            src="images/icons/pinterest.svg" alt="Pinterest"></a>
+                </div>
+            </div>
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="custom.html">Custom Chocolates</a></li>
+                    <li><a href="premade.html">Pre-Made Chocolates</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="articles.html">Articles</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h2>Contact Us</h2>
+                <p><a href="mailto:info@artisanbarkco.com" class="contact-link">info@artisanbarkco.com</a></p>
+                <p><a href="tel:123-456-7890" class="contact-link">123-456-7890</a></p>
+                <p><a href="https://www.google.com/maps/place/Kitchener,+ON/@43.4240759,-80.5144238,12z/data=!4m6!3m5!1s0x882bf48c03ee5105:0x9525f8e6df5f544b!8m2!3d43.4516395!4d-80.4925337!16zL20vMG1iZjQ?hl=en&entry=ttu"
+                        class="contact-link" target="_blank">123 Chocolate Lane, Kitchener, Ontario, Canada</a> </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Artisan Bark Co. | Designed by Cierra Bailey-Rice
+        </div>
+    </footer>
 </body>
 
 </html>
