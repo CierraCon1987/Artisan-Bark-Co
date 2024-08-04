@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Chocolate Builder</title>
     <link rel="stylesheet" type="text/css" href="artisan.css">
-    <script src="artisan.js" defer></script>
+    <script src="artisan.js" defer></script>    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
 </head>
 
 <body>
@@ -31,22 +32,26 @@
     </header>
 
     <main class="builder-container">
+        <h2>Custom Chocolate Bars</h2>
+        <p>Unleash your creativity with our custom chocolate bars. Select from our premium ingredients to concoct a
+            chocolate masterpiece that reflects your unique taste and provides a decadent, personalized indulgence.
+        </p>
         <div class="builder-choices">
-            <h2>Step 1: Choose Your Chocolate Type</h2>
+            <h3>Step 1: Choose Your Chocolate Type</h3>
             <select id="chocolate-type">
                 <option value="milk">Milk Chocolate</option>
                 <option value="dark">Dark Chocolate</option>
                 <option value="white">White Chocolate</option>
             </select>
 
-            <h2>Step 2: Choose Filled or Chocolate Bar</h2>
+            <h3>Step 2: Choose Filled or Chocolate Bar</h3>
             <input type="radio" id="filled" name="chocolate-style" value="filled">
             <label for="filled">Filled</label>
             <input type="radio" id="bar" name="chocolate-style" value="bar" checked>
             <label for="bar">Chocolate Bar</label>
 
-            <h2>Step 3: Choose Your Toppings</h2>
-            <h3>*A maximum of four(4) toppings*</h3>
+            <h3>Step 3: Choose Your Toppings</h3>
+            <h4>*A maximum of four(4) toppings*</h4>
             <div class="toppings">
                 <label><input type="checkbox" value="almonds">Almonds</label>
                 <label><input type="checkbox" value="hazelnut">Hazelnuts</label>
