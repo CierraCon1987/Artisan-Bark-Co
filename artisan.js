@@ -1,48 +1,59 @@
 //Custom Chocolate Builder JS
-$(document).ready(function() {
+$(document).ready(function () {
   const baseImages = {
-    milk: 'images/chocolates/milk-chocolate'
+    milk: 'images/toppings/milk-chocolate.png',
+    dark: 'images/toppings/dark-chocolate.png',
+    white: 'images/toppings/white-chocolate.png'
+  };
+
+  const toppingImages = {
+    almonds: 'images/toppings/almonds.png',
+    blueberries: 'images/toppings/blueberries.png',
+    caramel: 'images/toppings/caramel.png',
+    chia: 'images/toppings/chia.png',
+    coconut: 'images/toppings/coconut.png',
+    coconutcream: 'images/toppings/coconutcream.png',
+    cookiebits: 'images/toppings/cookiebits.png',
+    cranberries: 'images/toppings/cranberries.png',
+    ginger: 'images/toppings/ginger.png',
+    hazelnuts: 'images/toppings/hazelnuts.png',
+    maplecream: 'images/toppings/maplecream.png',
+    marshmallows: 'images/toppings/marshmallows.png',
+    mintcream: 'images/toppings/mintcream.png',
+    orangezest: 'images/toppings/orangezest.png',
+    peanutbutter: 'images/toppings/peanutbutter.png',
+    peanuts: 'images/toppings/peanuts.png',
+    pretzel: 'images/toppings/pretzel.png',
+    pumpkinseeds: 'images/toppings/pumpkinseeds.png',
+    quinoa: 'images/toppings/quinoa.png',
+    raspberrycream: 'images/toppings/raspberrycream.png',
+    seasalt: 'images/toppings/seasalt.png',
+    toffeebits: 'images/toppings/toffeebits.png',
+    truffle: 'images/toppings/truffle.png',
+    vanillacream: 'images/toppings/vanillacream.png',
+    walnuts: 'images/toppings/walnuts.png',
+  };
+
+  function updatePreview() {
+    const chocolateType = $('#chocolate-type').val();
+    const toppings = $('input[type="checkbox"]:checked').map(function () {
+      return $(this).val();
+    }).get();
+
+    let previewImage = baseImages[chocolateType];
+    if (toppings.length > 0) {
+      previewImage = baseImages[chocolateType] + '?toppings=' + toppings.join(',');
+    }
+
+    $('#chocolate-preview').css('background-image', 'url(' + previewImage + ')');
+
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
-    const chocolateTypeSelect = document.getElementById('chocolate-type');
-    const chocolateStyleRadios = document.getElementsByName('chocolate-style');
-    const toppingCheckboxes = document.querySelectorAll('.toppings input[type="checkbox"]');
-    const chocolatePreview = document.getElementById('chocolate-preview');
+  $('#chocolate-type').change(updatePreview);
+  $('input[name="chocolate-style"]').change(updatePreview);
+  $('input[type="checkbox"]').change(updatePreview);
 
-    function updateChocolatePreview() {
-      let chocolateType = chocolateTypeSelect.value;
-      let chocolateStyle = Array.from(chocolateStyleRadios).find(radio => radio.checked).value;
-      let selectedToppings = Array.from(toppingCheckboxes).filter(checkbox => checkbox.checked).map(checkbox => checkbox.value);
-
-      // Update chocolate base image
-      chocolatePreview.innerHTML = `<img src="images/${chocolateType}-${chocolateStyle}.jpg" class="chocolate-img" alt="Chocolate Image">`;
-
-      // Add toppings to the chocolate image
-      selectedToppings.forEach(topping => {
-        let toppingElement = document.createElement('div');
-        toppingElement.className = `topping ${topping}`;
-        toppingElement.textContent = topping;
-        chocolatePreview.appendChild(toppingElement);
-      });
-    }
-
-    function handleToppingChange() {
-      let selectedToppings = Array.from(toppingCheckboxes).filter(checkbox => checkbox.checked);
-
-      if (selectedToppings.length > 4) {
-        alert("You can select a maximum of 4 toppings.");
-        this.checked = false;
-      }
-      updateChocolatePreview();
-    }
-
-    chocolateTypeSelect.addEventListener('change', updateChocolatePreview);
-    chocolateStyleRadios.forEach(radio => radio.addEventListener('change', updateChocolatePreview));
-    toppingCheckboxes.forEach(checkbox => checkbox.addEventListener('change', handleToppingChange));
-
-    updateChocolatePreview(); // Initial preview update
-  });
+});
 
 //FAQ JS
 document.addEventListener("DOMContentLoaded", function () {
@@ -102,10 +113,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const subscribeMessage = document.querySelector('.subscribe-message');
   const emailInput = document.querySelector('input[type="email"');
 
-  subscribeButton.addEventListener('click',function(){
+  subscribeButton.addEventListener('click', function () {
     event.preventDefault();
     const emailValue = emailInput.value;
-    if(validateEmail(emailValue)) {
+    if (validateEmail(emailValue)) {
       subscribeMessage.style.display = 'block';
       subscribeMessage.textContent = 'Thank you for subscribing!';
     } else {
