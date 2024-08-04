@@ -1,4 +1,8 @@
-!
+//Custom Chocolate Builder JS
+$(document).ready(function() {
+  const baseImages = {
+    milk: 'images/chocolates/milk-chocolate'
+  }
 
   document.addEventListener('DOMContentLoaded', function () {
     const chocolateTypeSelect = document.getElementById('chocolate-type');
@@ -88,4 +92,29 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+});
+
+
+//Subscribe JS - Contact Form
+
+document.addEventListener("DOMContentLoaded", function () {
+  const subscribeButton = document.querySelector('.subscribe-button');
+  const subscribeMessage = document.querySelector('.subscribe-message');
+  const emailInput = document.querySelector('input[type="email"');
+
+  subscribeButton.addEventListener('click',function(){
+    event.preventDefault();
+    const emailValue = emailInput.value;
+    if(validateEmail(emailValue)) {
+      subscribeMessage.style.display = 'block';
+      subscribeMessage.textContent = 'Thank you for subscribing!';
+    } else {
+      subscribeMessage.style.display = 'block';
+      subscribeMessage.textContent = 'Please enter a valid email address.';
+    }
+  });
+  function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  }
 });
