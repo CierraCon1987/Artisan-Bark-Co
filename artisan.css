@@ -163,8 +163,9 @@ h3 {
 .split-view {
     display: flex;
     width: 100%;
-    height: 100%;
-    margin-top: 0px;
+    height: 100vh;
+    margin: 0px;
+    overflow: hidden;
 }
 
 .split {
@@ -173,23 +174,27 @@ h3 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
     animation: fadeInUp 1s ease-out forwards;
     height: 100vh;
     overflow: hidden;
     opacity: 1;
 }
 
-.split h2 {
-    color: #FFFFFF;
-    font-size: 2em;
-    font-weight: bold;
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
 }
 
 /* Buttons */
 .button {
     display: inline-block;
     padding: 10px 20px;
-    margin-top: 20px;
     font-size: 1em;
     color: #FFF8E1;
     background-color: #4E342E;
@@ -197,6 +202,8 @@ h3 {
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .button:hover {
@@ -211,7 +218,6 @@ h3 {
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease, opacity 0.3s ease;
-    position: relative;
 }
 
 .split .button:hover {
@@ -224,12 +230,19 @@ h3 {
     outline: none;
 }
 
-.background-video {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    max-height: 100vh;
-    object-fit: cover;
+/* Responsiveness */
+@media (max-width: 768px) {
+    .button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .button {
+        padding: 6px 12px;
+        font-size: 0.7em;
+    }
 }
 
 /* Pre-Made Chocolate Container */
