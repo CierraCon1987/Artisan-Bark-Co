@@ -7,6 +7,7 @@
     <title>Contact</title>
     <link rel="stylesheet" type="text/css" href="artisan.css">
     <script src="artisan.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -36,7 +37,7 @@
 
         <div class="contact-container">
             <div class="contact-form">
-                <form action="#" method="post">
+                <form id="contact-form" action="#" method="post">
                     <div class="form-group">
                         <label for="first-name">* First Name:</label>
                         <input type="text" id="first-name" name="first-name" required>
@@ -68,7 +69,8 @@
                         <label for="message">* Message:</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
-                    <a href="contact-confirmation.html" class="submit-button">Submit</a>
+                    <button type="submit" class="submit-button">Submit</button>
+                    <p id="form-message" class="form-message"></p>
                 </form>
                 <div class="contact-info">
                     <h3>You can reach us at:</h3>

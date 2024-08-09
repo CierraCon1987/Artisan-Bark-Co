@@ -74,8 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const answer = item.querySelector(".faq-answer");
 
     question.addEventListener("click", () => {
-      const isVisible = item.classList.contains("active");
-      if (isVisible) {
+      if (item.classList.contains("active")) {
         item.classList.remove("active");
         answer.style.maxHeight = null;
       } else {
@@ -92,9 +91,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //Article JS
 document.addEventListener("DOMContentLoaded", function () {
-  const articleItem = document.querySelectorAll(".article-item");
+  const articleItems = document.querySelectorAll(".article-item");
 
-  articleItem.forEach(item => {
+  articleItems.forEach(item => {
     const title = item.querySelector(".article-title");
     const content = item.querySelector(".article-content");
 
@@ -102,28 +101,23 @@ document.addEventListener("DOMContentLoaded", function () {
       const isVisible = item.classList.contains("active");
       if (isVisible) {
         item.classList.remove("active");
-        answer.style.maxHeight = null;
+        content.style.maxHeight = null;
       } else {
-        articleItem.forEach(i => {
+        articleItems.forEach(i => {
           i.classList.remove("active");
           i.querySelector(".article-content").style.maxHeight = null;
         });
         item.classList.add("active");
-        answer.style.maxHeight = content.scrollHeight + "px";
+        content.style.maxHeight = content.scrollHeight + "px";
       }
     });
   });
-});
-
-
-//Subscribe JS - Contact Form
-
-document.addEventListener("DOMContentLoaded", function () {
+  // Subscribe Button JS
   const subscribeButton = document.querySelector('.subscribe-button');
   const subscribeMessage = document.querySelector('.subscribe-message');
-  const emailInput = document.querySelector('input[type="email"');
+  const emailInput = document.querySelector('#subscribe-email');
 
-  subscribeButton.addEventListener('click', function () {
+  subscribeButton.addEventListener('click', function (event) {
     event.preventDefault();
     const emailValue = emailInput.value;
     if (validateEmail(emailValue)) {
@@ -134,8 +128,43 @@ document.addEventListener("DOMContentLoaded", function () {
       subscribeMessage.textContent = 'Please enter a valid email address.';
     }
   });
+
   function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());
+  }
+});
+// Contact Form JS
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById('contact-form');
+  const formMessage = document.getElementById('form-message');
+
+  form.addEventListener('submit', function (event) {
+      event.preventDefault(); 
+
+      const firstName = document.getElementById('first-name').value.trim();
+      const lastName = document.getElementById('last-name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value.trim();
+
+      if (firstName && lastName && phone && email && subject && message) {
+          if (validateEmail(email)) {
+            window.location.href = 'contact-confirmation.html';
+          } else {
+              formMessage.style.color = 'red';
+              formMessage.textContent = 'Please enter a valid email address.';
+          }
+      } else {
+          formMessage.style.color = 'red';
+          formMessage.textContent = 'Please fill out all required fields.';
+      }
+  });
+
+  function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(String(email).toLowerCase());
   }
 });
