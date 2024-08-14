@@ -363,6 +363,7 @@ h3 {
     max-width: 30%;
     border: solid 2px #F4BE69;
     margin-right: 20px;
+    margin-left: 100px;
 }
 
 .custom-intro h2 {
@@ -375,6 +376,7 @@ h3 {
 
 .builder-choices h3 {
     font-size: 20px;
+    text-decoration: underline;
 }
 
 .builder-choices h4 {
